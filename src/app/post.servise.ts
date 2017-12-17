@@ -41,7 +41,7 @@ export class PostService {
      headers.append("Content-Type", "application/json");
      headers.append("Origin", "123123");
      this.http.post('https://pure-refuge-32982.herokuapp.com/posts/ooo',
-     '{"id":"'+model.id+'","title":"'+model.title+'","categories":"'+model.categories+'","content":"'+model.content+'"}',
+     '{"id":"'+model.id+'","title":"'+model.title+'","categories":"'+model.categories+'","content":"'+model.content.toString()+'"}',
      new RequestOptions({
      headers: headers
   })).subscribe((res) => {
