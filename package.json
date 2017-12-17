@@ -5,7 +5,7 @@
   "main": "server/app.js",
   "license": "MIT",
   "scripts": {
-    "start": "concurrently --kill-others \"npm run server:run\" \"ng serve --aot --progress=false --proxy-config proxy.conf.json\"",
+    "start": "ng serve --aot --progress=false --proxy-config proxy.conf.json",
     "lint:client": "ng lint",
     "lint:server": "tslint './server/**/*.ts' -c ./server/tslint.json --fix",
     "test:client": "ng test --watch false",
@@ -16,6 +16,10 @@
     "postinstall": "npm run build"
   },
   "author": "Vlado Tešanović",
+  "engines": {
+    "node": "8.9.1",
+    "npm": "5.2.0"
+  },
   "repository": {
     "url": "https://github.com/vladotesanovic/angular2-express-starter"
   },

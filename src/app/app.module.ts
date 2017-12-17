@@ -1,50 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { StoreModule } from '@ngrx/store';
-import { EffectsModule } from '@ngrx/effects';
-import { RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { routes } from './app.router';
-import { metaReducers, reducers } from './store';
-import { SharedModule } from './shared/shared.module';
-import { WeatherService } from './weather/weather.service';
-import { WeatherEffects } from './store/weather/weather.effects';
-import { FeedEffects } from './store/feed/feed.effects';
-import { ProfileEffects } from './store/profile/profile.effects';
-import { environment } from '../environments/environment';
+import { PostComponent } from './post/post.component';
+import { HttpModule } from '@angular/http';
+import { CComponent } from './c/c.component';
+import { PostPageComponent } from './post-page/post-page.component';
+import { AddPageComponent } from './add-page/add-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+const routes = [
+  {path: '', component:CComponent},
+  {path: 'view/:id', component:PostPageComponent},
+  {path: 'add', component:AddPageComponent}
+]
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostComponent,
+    CComponent,
+    PostPageComponent,
+    AddPageComponent
   ],
   imports: [
     BrowserModule,
-    SharedModule,
-    FormsModule,
+    HttpModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers, { metaReducers }),
-    EffectsModule.forRoot([
-      ProfileEffects,
-      FeedEffects,
-      WeatherEffects
-    ]),
-    !environment.production ? StoreDevtoolsModule.instrument({ maxAge: 50 }) : [],
-    RouterModule.forRoot(
-      routes,
-      {
-        useHash: true
-      }
-    )
+FormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [
-    WeatherService
-  ],
-  bootstrap: [
-    AppComponent
-  ]
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }

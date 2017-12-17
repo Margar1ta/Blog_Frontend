@@ -1,0 +1,10 @@
+<h1>
+  Welcome to {{ title }}!
+</h1>
+<div class="row">
+  <app-post *ngFor="let post of posts" [post]="post"></app-post>
+  <a
+  [routerLink]="['/add']"
+   class="waves-effect waves-light btn"
+   >New Post</a>
+</div>

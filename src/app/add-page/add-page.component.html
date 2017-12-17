@@ -1,0 +1,33 @@
+
+
+<div class="row">
+   <form  #AddPageComponent="ngForm" (ngSubmit)="onSubmit(model)" class="col s12"  id="myform" >
+     <div class="row">
+       <div class="input-field col s6">
+         ID<input required  id="id" type="text" class="validate" [(ngModel)]="model.id" name="id">
+
+       </div>
+       <div class="input-field col s6">
+         Title<input required id="Title" type="text" class="validate" [(ngModel)]="model.title" name="title">
+
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s12">
+         Content<input required id="Content" type="text" class="validate" [(ngModel)]="model.content" name="content">
+
+       </div>
+     </div>
+     <div class="row">
+       <div class="input-field col s12">
+         categories<input required id="categories" type="text" class="validate" [(ngModel)]="model.categories" name="categories">
+         
+       </div>
+     </div>
+     <div class="row">
+       <div class="col s12">
+          <input id="submit" type="submit"  >
+       </div>
+     </div>
+   </form>
+ </div>
